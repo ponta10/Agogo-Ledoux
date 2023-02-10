@@ -19,6 +19,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+// Route::prefix('admin')->group(function () {
+//     Route::get('/','AdminController@index')->name('admin');
+//     Route::get('/product','AdminController@product')->name('');
+// });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['prefix' => 'admin', 'as' => 'admin'], function(){
+    Route::get('/', 'AdminController@index');    //ルート名「product」
+    Route::get('/product', 'AdminController@product')->name('.product');  //ルート名「product.show」
+    Route::get('/userList', 'AdminController@userList')->name('.userList');
+    Route::get('/setting', 'AdminController@setting')->name('.setting');  //ルート名「product.show」
+});
