@@ -17,10 +17,10 @@
     <div class="main">
         <nav class="navigation">
             <ul class="navigation-list">
-                <li class="navigation-list_item @yield('home')"><a href="{{ route('admin') }}">ホーム</a></li>
-                <li class="navigation-list_item @yield('product')"><a href="{{ route('admin.product') }}">商品管理<a></li>
-                <li class="navigation-list_item @yield('userList')"><a href="{{ route('admin.userList') }}">会員管理</a></li>
-                <li class="navigation-list_item @yield('setting')"><a href="{{ route('admin.setting') }}">設定</a></li>
+                <li class="navigation-list_item @yield('home')"><a href="{{ route('admin') }}" class="link">ホーム</a></li>
+                <li class="navigation-list_item @yield('product')"><a href="{{ route('admin.product') }}" class="link">商品管理<a></li>
+                <li class="navigation-list_item @yield('userList')"><a href="{{ route('admin.userList') }}" class="link">会員管理</a></li>
+                <li class="navigation-list_item @yield('setting')"><a href="{{ route('admin.setting') }}" class="link">設定</a></li>
             </ul>
         </nav>
         <div class="container">
