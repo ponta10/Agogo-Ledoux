@@ -47,9 +47,8 @@ header {
 }
 
 .navigation-list_item:hover{ 
-    background-color: #000;
+    background-color: #1f2f54;
     font-weight: bold;
-    opacity: 0.8;
     cursor: pointer;
 }
 
@@ -59,4 +58,13 @@ header {
 
 .container{
     padding: 16px;
+}
+
+.selected {
+    background-color: #1f2f54;
+}
+
+.selected a {
+    color: #fff;
+    font-weight: bold;
 }
