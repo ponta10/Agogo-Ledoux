@@ -1,3 +1,5 @@
 @extends('layouts.mainLayout')
-@section('title', 'Setting')
+@section('pageLayout')
+    <p>Setting</p>
+@endsection
 @section('setting', 'selected')

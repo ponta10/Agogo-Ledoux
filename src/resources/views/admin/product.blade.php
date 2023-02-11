@@ -1,3 +1,5 @@
 @extends('layouts.mainLayout')
-@section('title', 'Product')
+@section('pageLayout')
+    <p>Product</p>
+@endsection
 @section('product', 'selected')

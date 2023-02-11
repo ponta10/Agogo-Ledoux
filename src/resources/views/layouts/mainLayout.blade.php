@@ -24,7 +24,7 @@
             </ul>
         </nav>
         <div class="container">
-            <p>@yield('title', 'Home')</p>
+            @yield('pageLayout')
         </div>
     </div>
 </body>

@@ -1,3 +1,5 @@
 @extends('layouts.mainLayout')
-@section('title', 'userList')
+@section('pageLayout')
+    <p>userList</p>
+@endsection
 @section('userList', 'selected')
