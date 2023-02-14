@@ -29,6 +29,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin'], function () {
         Route::get('/delete/{id}', 'ProductController@delete')->name('.delete');
         Route::get('/show/{id}', 'ProductController@show')->name('.show');
         Route::put('/edit/{id}', 'ProductController@edit')->name('.edit');
+        Route::get('/search', 'ProductController@search')->name('.search');
     });
     Route::get('/userList', 'AdminController@userList')->name('.userList');
     Route::get('/setting', 'AdminController@setting')->name('.setting');  //ルート名「product.show」

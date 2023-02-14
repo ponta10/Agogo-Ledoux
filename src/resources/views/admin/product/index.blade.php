@@ -1,11 +1,12 @@
 @extends('layouts.mainLayout')
 @section('pageLayout')
 <div class="table-container">
-    <div class="product_search">
-        <input type="text">
-        <button class="btn">検索</button>
-        <button class="btn add-btn">新規追加</button>
-    </div>
+    <form class="product_search" action="{{ route('admin.product.search') }}" method="get" enctype="multipart/form-data" >
+        <input type="text" name="search" value="{{ request()->input('search') }}">
+        <button class="btn" type="submit">検索</button>
+        <button class="btn clear-btn" type="button"><a href="{{ route('admin.product') }}">クリア</a></button>
+        <button class="btn add-btn" type="button">新規追加</button>
+    </form>
     <div class="selection">
         <button class="btn release-btn">公開している商品</button>
         <button class="btn trash-btn notSelected">ゴミ箱</button>
