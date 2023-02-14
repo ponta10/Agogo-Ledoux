@@ -1,0 +1,218 @@
+/* User画面 */
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-feature-settings: "palt";
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: Tahoma, Geneva, "sans-serif";
+}
+
+p {
+    font-size: 14px;
+    line-height: 175%;
+}
+
+.hero {
+    background-image: url(../../images/fruits.jpg);
+    background-size: cover;
+    background-position: center top;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*検索ボックス*/
+#searchBox {
+    width: 370px;
+    height: 70px;
+    position: relative;
+    left: 0;
+    top: 0;
+    outline: 0;
+    padding: 0 20px;
+    border-radius: 5px 0 0 5px;
+    background: rgb(255, 255, 255);
+}
+
+/*検索ボタン*/
+#serchForm {
+    margin-top: 20%;
+}
+
+#searchBtn {
+    width: 100px;
+    height: 70px;
+    left: 270px;
+    top: 0;
+    border-radius: 0 5px 5px 0;
+    background: #FFB23E;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/*検索ボタンマウスオーバー時*/
+#searchBtn:hover {
+    color: rgb(182, 179, 179);
+}
+
+.brand {
+    font-weight: bold;
+    font-size: 40px;
+
+}
+
+.site-header {
+    padding-left: 50px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
+}
+
+.site-header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+.nav__item a {
+    display: block;
+    padding: 1.5rem 1rem;
+    font-size: 20px;
+}
+
+.nav__item a:hover {
+    background-color: white;
+    color: #313131;
+    border-radius: 30px;
+}
+
+.nav__toggle {
+    display: none;
+}
+
+.nav__wrapper {
+    display: flex;
+    margin-right: 30px;
+}
+
+.btn--orange,
+a.btn--orange {
+    color: #fff;
+    background-color: #eb6100;
+    border-radius: 30px;
+}
+
+.btn--orange:hover,
+a.btn--orange:hover {
+    color: #fff;
+    background: #f38434;
+    border-radius: 30px;
+}
+
+.container {
+    display: flex;
+    padding: 3rem 0;
+}
+
+.tag {
+    width: 30%;
+    height: 100%;
+}
+.tag-title {
+    padding-left: 5rem;
+}
+
+.tag-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 1rem;
+}
+
+.tag-list li {
+    width: 70%;
+    font-size: 25px;
+    border-radius: 20px;
+    margin: 10px 0;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+}
+
+.tag-list_item {
+    background-color: #e3e3e3;
+    border: #000 1px solid;
+    text-align: center;
+    border-bottom: solid 1px #000;
+    height: 50px;
+}
+
+.tag-list_item_submit {
+    background: #AECD54;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.popular {
+    width: 70%;
+    height: 100%;
+}
+.popular-list {
+    display: flex;
+    padding-top: 1rem;
+}
+.popular-list_item {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+    align-items: center;
+    width: 30%;
+    border: #7e7e7e 2px solid;
+    border-radius: 10px;
+}
+.popular-list_item span {
+    font-size:20px;
+    padding: 5px 0;
+}
+.popular-list_item button {
+    border-radius: 30px;
+    margin: 20px 0;
+    text-align: center;
+    height: 60px;
+    width: 80%;
+    line-height: 60px;
+    background: #FFB23E;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;    
+}
+
+.popular-list_item img {
+    width: 100%;
+    height: 100%;
+}
