@@ -13,4 +13,20 @@ class ProductController extends Controller
         $products = Product::all();
         return view('admin.product',compact('products'));
     }
+
+    public function store(Request $request)
+    {   
+        $data = $request->all();
+        $img = $request->file('image');
+        $folder_path = $img->store('image','public');
+        $path = str_replace('image', '', $folder_path);
+        Product::create([
+            'name' => $data['product_name'],
+            'price' => $data['product_price'],
+            'stock' => $data['product_stock'],
+            'image' => $path,
+            "desc" => $data['product_desc'],
+        ]);
+        return redirect()->route('admin.product');
+    }
 }
