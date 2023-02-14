@@ -12,7 +12,7 @@ class ProductController extends Controller
     {   
         $products = Product::all();
         $delete_products = Product::onlyTrashed()->get();
-        return view('admin.product',compact('products','delete_products'));
+        return view('admin.product.index',compact('products','delete_products'));
     }
 
     public function store(Request $request)
@@ -40,6 +40,25 @@ class ProductController extends Controller
     public function restore($id)
     {   
         Product::onlyTrashed()->find($id)->restore();
+        return redirect()->route('admin.product');
+    }
+
+    public function show($id)
+    {   
+        $product = Product::find($id);
+        return view('admin.product.show',compact('product'));
+    }
+
+    public function edit(Request $request,$id)
+    {   
+        $update = [
+            'name' => $request->title,
+            'price' => $request->detail,
+            'stock' => $request->stock,
+            'image' => "test",
+            'desc' => $request->desc,
+        ];
+        Product::find($id)->update($update);
         return redirect()->route('admin.product');
     }
 }

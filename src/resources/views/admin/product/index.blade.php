@@ -20,6 +20,7 @@
                 <th>在庫</th>
                 <th>タグ</th>
                 <th>公開日</th>
+                <th>更新</th>
                 <th>削除</th>
             </tr>
             @foreach($products as $product)
@@ -31,6 +32,7 @@
                 <td>{{$product->stock}}</td>
                 <td>あああ</td>
                 <td>{{$product->created_at}}</td>
+                <td><a href="{{ route('admin.product.show',['id' => $product->id ]) }}"><img src="/storage/image/edit.png" alt="" class="trash_can"></a></td>
                 <td><a href="{{ route('admin.product.destroy',['id' => $product->id ]) }}"><img src="/storage/image/trash_can.png" alt="" class="trash_can"></a></td>
             </tr>
             @endforeach
