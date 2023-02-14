@@ -30,3 +30,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin'], function(){
     Route::get('/userList', 'AdminController@userList')->name('.userList');
     Route::get('/setting', 'AdminController@setting')->name('.setting');  //ルート名「product.show」
 });
+
+Route::group(['prefix' => 'cart', 'as' => 'cart'], function(){
+    Route::get('/', 'CartController@index');
+});
