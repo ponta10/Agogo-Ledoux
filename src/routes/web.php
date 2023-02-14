@@ -19,14 +19,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::prefix('admin')->group(function () {
-//     Route::get('/','AdminController@index')->name('admin');
-//     Route::get('/product','AdminController@product')->name('');
-// });
-
 Route::group(['prefix' => 'admin', 'as' => 'admin'], function(){
-    Route::get('/', 'AdminController@index');    //ルート名「product」
-    Route::get('/product', 'ProductController@index')->name('.product');  //ルート名「product.show」
+    Route::get('/', 'AdminController@index'); 
+    Route::group(['prefix' => 'product', 'as' => '.product'], function(){
+        Route::get('/', 'ProductController@index');
+        Route::post('/store', 'ProductController@store')->name('.store');
+    });
     Route::get('/userList', 'AdminController@userList')->name('.userList');
-    Route::get('/setting', 'AdminController@setting')->name('.setting');  //ルート名「product.show」
+    Route::get('/setting', 'AdminController@setting')->name('.setting');  
 });

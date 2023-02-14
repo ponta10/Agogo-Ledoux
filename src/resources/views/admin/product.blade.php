@@ -3,8 +3,8 @@
 <div class="table-container">
     <div class="product_search">
         <input type="text">
-        <button>検索</button>
-        <button>新規追加</button>
+        <button class="btn">検索</button>
+        <button class="btn add-btn">新規追加</button>
     </div>
     <div class="product-container">
         <table class="product_table">
@@ -30,6 +30,33 @@
             @endforeach
         </table>
     </div>
+</div>
+<div class="overlay">
+    <form class="modal" action="{{ route('admin.product.store') }}" method="post" enctype="multipart/form-data">
+        @csrf
+        <h3>商品追加</h3>
+        <div class="textField">
+            <p>商品名</p>
+            <input class="modal_input" type="text" name="product_name" placeholder="りんご">
+        </div>
+        <div class="textField">
+            <p>価格</p>
+            <input class="modal_input" type="number" name="product_price" placeholder="1200">
+        </div>
+        <div class="textField">
+            <p>在庫</p>
+            <input class="modal_input" type="number" name="product_stock" placeholder="100">
+        </div>
+        <div class="textField">
+            <p>詳細</p>
+            <textarea class="modal_input" type="text" name="product_desc" placeholder="甘酸っぱいりんごです"></textarea>
+        </div>
+        <div class="btn-container">
+            <button class="btn" type="submit">商品追加</button>
+            <input type="submit" value="送信">
+            <button class="btn" type="button">キャンセル</button>
+        </div>
+    </form>
 </div>
 @endsection
 @section('product', 'selected')

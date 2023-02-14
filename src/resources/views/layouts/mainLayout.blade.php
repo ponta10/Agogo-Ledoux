@@ -27,6 +27,7 @@
             @yield('pageLayout')
         </div>
     </div>
+    <script src="{{ asset('/script/admin.js') }}"></script>
 </body>
 
 </html>
