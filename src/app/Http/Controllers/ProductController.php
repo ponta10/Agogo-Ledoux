@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -51,12 +52,20 @@ class ProductController extends Controller
 
     public function edit(Request $request,$id)
     {   
+        $img = $request->file('image');
+        $path = Product::find($id)->image;
+        if (isset($img)) {
+        Storage::disk('public')->delete($path);
+        $folder_path = $img->store('image','public');
+        $path = str_replace('image', '', $folder_path);
+        Product::find($id)->update([ 'image' => $path]);
+        }
+        $data = $request->all();
         $update = [
-            'name' => $request->title,
-            'price' => $request->detail,
-            'stock' => $request->stock,
-            'image' => "test",
-            'desc' => $request->desc,
+            'name' => $data["product_name"],
+            'price' => $data["product_price"],
+            'stock' => $data["product_stock"],
+            'desc' => $data["product_desc"],
         ];
         Product::find($id)->update($update);
         return redirect()->route('admin.product');

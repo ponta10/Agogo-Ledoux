@@ -172,7 +172,7 @@ header {
     margin: 16px 0;
 }
 
-.modal_input{
+.modal_input, .textField input, .textField textarea{
     background-color: #fff;
     border: solid 1px rgba(0, 0, 0,.2);
     border-radius: 4px;
@@ -183,6 +183,7 @@ header {
 
 .btn-container{
     text-align: center;
+    margin-top: 24px;
 }
 
 .block{
@@ -210,4 +211,15 @@ header {
 .selection{
     text-align: center;
     margin-bottom: 16px;
+}
+
+.show-container{
+    height: 100%;
+    overflow: scroll;
+}
+
+.imageField{
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
 }
