@@ -24,6 +24,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin'], function(){
     Route::group(['prefix' => 'product', 'as' => '.product'], function(){
         Route::get('/', 'ProductController@index');
         Route::post('/store', 'ProductController@store')->name('.store');
+        Route::get('/destroy/{id}', 'ProductController@destroy')->name('.destroy');
     });
     Route::get('/userList', 'AdminController@userList')->name('.userList');
     Route::get('/setting', 'AdminController@setting')->name('.setting');  

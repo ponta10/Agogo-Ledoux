@@ -192,3 +192,9 @@ header {
 #preview{
     object-fit: cover;
 }
+
+.trash_can {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}

@@ -29,4 +29,10 @@ class ProductController extends Controller
         ]);
         return redirect()->route('admin.product');
     }
+
+    public function destroy($id)
+    {   
+        Product::find($id)->delete();
+        return redirect()->route('admin.product');
+    }
 }
