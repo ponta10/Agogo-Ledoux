@@ -188,3 +188,7 @@ header {
 .block{
     display: block;
 }
+
+#preview{
+    object-fit: cover;
+}

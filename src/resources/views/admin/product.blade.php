@@ -20,7 +20,7 @@
             @foreach($products as $product)
             <tr>
                 <td>{{$product->id}}</td>
-                <td><img class="product_image" src="{{ asset('image/' . $product->image) }}" /></td>
+                <td><img class="product_image" src="{{ asset('storage/image/' . $product->image) }}" /></td>
                 <td>{{$product->name}}</td>
                 <td>{{$product->price}}</td>
                 <td>{{$product->stock}}</td>
@@ -40,6 +40,11 @@
             <input class="modal_input" type="text" name="product_name" placeholder="りんご">
         </div>
         <div class="textField">
+            <p>画像</p>
+            <input type="file" name="image" class="file">
+            <img id="preview" class="img-thumbnail h-25 w-25 mb-3" width="600px" height="450px" src="/storage/image/図1.png">
+        </div>
+        <div class="textField">
             <p>価格</p>
             <input class="modal_input" type="number" name="product_price" placeholder="1200">
         </div>
@@ -53,7 +58,6 @@
         </div>
         <div class="btn-container">
             <button class="btn" type="submit">商品追加</button>
-            <input type="submit" value="送信">
             <button class="btn" type="button">キャンセル</button>
         </div>
     </form>

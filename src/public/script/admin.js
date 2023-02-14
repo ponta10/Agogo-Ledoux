@@ -1,15 +1,42 @@
-const addBtn = document.querySelector('.add-btn');
-const overlay = document.querySelector('.overlay'); 
-const modal = document.querySelector('.modal'); 
+const addBtn = document.querySelector(".add-btn");
+const overlay = document.querySelector(".overlay");
+const modal = document.querySelector(".modal");
 
 const modalOpen = () => {
-    overlay.classList.add('block');
-}
+    overlay.classList.add("block");
+};
 
 const modalClose = () => {
-    overlay.classList.remove('block');
+    overlay.classList.remove("block");
+};
+
+addBtn.addEventListener("click", modalOpen);
+overlay.addEventListener("click", modalClose);
+modal.addEventListener("click", (e) => e.stopPropagation());
+
+const file = document.querySelector(".file");
+const preview = document.querySelector("#preview");
+
+const filePreview = (e) => {
+    console.log("aaa")
+    let render = new FileReader;
+    render.onload = (e) => {
+        preview.setAttribute("src", e.target.result);
+    }
+    render.readAsDataURL(e.target.files[0]);
 }
 
-addBtn.addEventListener('click', modalOpen)
-overlay.addEventListener('click', modalClose)
-modal.addEventListener('click', (e) => e.stopPropagation() );
+file.addEventListener("change", filePreview);
+
+
+// $(function () {
+//     $("[name='image']").on("change", function (e) {
+//         var reader = new FileReader();
+
+//         reader.onload = function (e) {
+//             $("#preview").attr("src", e.target.result);
+//         };
+
+//         reader.readAsDataURL(e.target.files[0]);
+//     });
+// });
