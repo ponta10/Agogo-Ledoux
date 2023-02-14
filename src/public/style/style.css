@@ -62,7 +62,7 @@ header {
 }
 
 .container{
-    padding: 40px;
+    padding: 24px;
     width: 80%;
 }
 
@@ -83,7 +83,7 @@ header {
 .product-container{
     background-color: #fff;
     overflow-y: scroll;
-    height: 85%;
+    height: 80%;
     width: 95%;
     margin: 0 auto;
     padding: 24px;
@@ -138,7 +138,7 @@ header {
     box-shadow: 3px 3px 5px rgba(0, 0, 0,.2);
 }
 
-.table-container button:hover{
+.btn:hover{
     background-color: #000;
     opacity: 0.7;
     box-shadow: none;
@@ -189,6 +189,25 @@ header {
     display: block;
 }
 
+.none{
+    display: none;
+}
+
+.notSelected{
+    opacity: 0.6;
+}
+
 #preview{
     object-fit: cover;
+}
+
+.trash_can {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.selection{
+    text-align: center;
+    margin-bottom: 16px;
 }

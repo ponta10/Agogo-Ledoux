@@ -6,6 +6,10 @@
         <button class="btn">検索</button>
         <button class="btn add-btn">新規追加</button>
     </div>
+    <div class="selection">
+        <button class="btn release-btn">公開している商品</button>
+        <button class="btn trash-btn notSelected">ゴミ箱</button>
+    </div>
     <div class="product-container">
         <table class="product_table">
             <tr>
@@ -16,6 +20,7 @@
                 <th>在庫</th>
                 <th>タグ</th>
                 <th>公開日</th>
+                <th>削除</th>
             </tr>
             @foreach($products as $product)
             <tr>
@@ -26,6 +31,31 @@
                 <td>{{$product->stock}}</td>
                 <td>あああ</td>
                 <td>{{$product->created_at}}</td>
+                <td><a href="{{ route('admin.product.destroy',['id' => $product->id ]) }}"><img src="/storage/image/trash_can.png" alt="" class="trash_can"></a></td>
+            </tr>
+            @endforeach
+        </table>
+        <table class="product_table product_table_trash none">
+            <tr>
+                <th>ID</th>
+                <th>画像</th>
+                <th>商品名</th>
+                <th>価格</th>
+                <th>在庫</th>
+                <th>タグ</th>
+                <th>削除日</th>
+                <th>復元</th>
+            </tr>
+            @foreach($delete_products as $product)
+            <tr>
+                <td>{{$product->id}}</td>
+                <td><img class="product_image" src="{{ asset('storage/image/' . $product->image) }}" /></td>
+                <td>{{$product->name}}</td>
+                <td>{{$product->price}}</td>
+                <td>{{$product->stock}}</td>
+                <td>あああ</td>
+                <td>{{$product->deleted_at}}</td>
+                <td><a href="{{ route('admin.product.restore',['id' => $product->id ]) }}"><img src="/storage/image/restore.png" alt="" class="trash_can"></a></td>
             </tr>
             @endforeach
         </table>

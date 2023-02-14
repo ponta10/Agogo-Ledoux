@@ -11,7 +11,8 @@ class ProductController extends Controller
     public function index()
     {   
         $products = Product::all();
-        return view('admin.product',compact('products'));
+        $delete_products = Product::onlyTrashed()->get();
+        return view('admin.product',compact('products','delete_products'));
     }
 
     public function store(Request $request)
@@ -27,6 +28,18 @@ class ProductController extends Controller
             'image' => $path,
             "desc" => $data['product_desc'],
         ]);
+        return redirect()->route('admin.product');
+    }
+
+    public function destroy($id)
+    {   
+        Product::find($id)->delete();
+        return redirect()->route('admin.product');
+    }
+
+    public function restore($id)
+    {   
+        Product::onlyTrashed()->find($id)->restore();
         return redirect()->route('admin.product');
     }
 }
