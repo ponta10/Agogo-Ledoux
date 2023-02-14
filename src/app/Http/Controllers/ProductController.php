@@ -44,6 +44,12 @@ class ProductController extends Controller
         return redirect()->route('admin.product');
     }
 
+    public function delete($id)
+    {   
+        Product::onlyTrashed()->find($id)->forceDelete();
+        return redirect()->route('admin.product');
+    }
+
     public function show($id)
     {   
         $product = Product::find($id);

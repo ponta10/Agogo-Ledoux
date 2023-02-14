@@ -47,6 +47,7 @@
                 <th>タグ</th>
                 <th>削除日</th>
                 <th>復元</th>
+                <th>完全削除</th>
             </tr>
             @foreach($delete_products as $product)
             <tr>
@@ -58,6 +59,7 @@
                 <td>あああ</td>
                 <td>{{$product->deleted_at}}</td>
                 <td><a href="{{ route('admin.product.restore',['id' => $product->id ]) }}"><img src="/storage/image/restore.png" alt="" class="trash_can"></a></td>
+                <td><a href="{{ route('admin.product.delete',['id' => $product->id ]) }}"><img src="/storage/image/complete_delete.webp" alt="" class="trash_can"></a></td>
             </tr>
             @endforeach
         </table>
