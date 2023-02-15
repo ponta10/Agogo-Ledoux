@@ -1,4 +1,4 @@
-@extends('layouts.mainLayout')
+@extends('layouts.admin.mainLayout')
 @section('pageLayout')
     <p>Setting</p>
 @endsection

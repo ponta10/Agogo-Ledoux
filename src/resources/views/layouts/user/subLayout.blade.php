@@ -6,17 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@yield('title')</title>
   <link rel="stylesheet" href="{{ asset('/style/reset.css') }}">
-  <link rel="stylesheet" href="{{ asset('/style/userpage/user.css') }}">
+  <link rel="stylesheet" href="{{ asset('/style/cartpage/user.css') }}">
 </head>
 <body>
   <header class="header">
     <div class="logo">Agogo & Ledoux</div>
     <nav>
       <ul class="header_nav_lists">
-        <li><a href="">Home</a></li>
-        <li><a href="">Sale</a></li>
-        <li><a href="">Account</a></li>
-        <li><a href="">Contact</a></li>
+        <li><a href="/user/home">Home</a></li>
+        <li><a href="/user/cart">Sale</a></li>
+        <li><a href="/user/account">Account</a></li>
+        <li><a href="/user/contact">Contact</a></li>
       </ul>
     </nav>
     <div>カートへ</div>
