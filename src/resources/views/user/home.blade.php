@@ -1,1 +1,1 @@
-@extends('layouts.user.mainLayout')
+@extends('layouts.user.homeLayout')

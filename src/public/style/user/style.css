@@ -27,7 +27,7 @@ p {
 }
 
 .hero {
-    background-image: url(../../images/fruits.jpg);
+    background-image: url(../../img/fruits.jpg);
     background-size: cover;
     background-position: center top;
     width: 100%;

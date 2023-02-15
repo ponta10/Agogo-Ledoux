@@ -10,15 +10,15 @@ const modalClose = () => {
     overlay.classList.remove("block");
 };
 
-addBtn.addEventListener("click", modalOpen);
-overlay.addEventListener("click", modalClose);
-modal.addEventListener("click", (e) => e.stopPropagation());
+addBtn?.addEventListener("click", modalOpen);
+overlay?.addEventListener("click", modalClose);
+modal?.addEventListener("click", (e) => e.stopPropagation());
 
 const file = document.querySelector(".file");
 const preview = document.querySelector("#preview");
 
 const filePreview = (e) => {
-    console.log("aaa")
+    console.log("aa")
     let render = new FileReader;
     render.onload = (e) => {
         preview.setAttribute("src", e.target.result);
@@ -48,5 +48,5 @@ const productOpen = () => {
     trashBtn.classList.add('notSelected');
 }
 
-releaseBtn.addEventListener("click", productOpen);
-trashBtn.addEventListener("click", trashOpen);
+releaseBtn?.addEventListener("click", productOpen);
+trashBtn?.addEventListener("click", trashOpen);

@@ -1,11 +1,12 @@
-@extends('layouts.mainLayout')
+@extends('layouts.admin.mainLayout')
 @section('pageLayout')
 <div class="table-container">
-    <div class="product_search">
-        <input type="text">
-        <button class="btn">検索</button>
-        <button class="btn add-btn">新規追加</button>
-    </div>
+    <form class="product_search" action="{{ route('admin.product.search') }}" method="get" enctype="multipart/form-data" >
+        <input type="text" name="search" value="{{ request()->input('search') }}">
+        <button class="btn" type="submit">検索</button>
+        <button class="btn clear-btn" type="button"><a href="{{ route('admin.product') }}">クリア</a></button>
+        <button class="btn add-btn" type="button">新規追加</button>
+    </form>
     <div class="selection">
         <button class="btn release-btn">公開している商品</button>
         <button class="btn trash-btn notSelected">ゴミ箱</button>
@@ -20,6 +21,7 @@
                 <th>在庫</th>
                 <th>タグ</th>
                 <th>公開日</th>
+                <th>更新</th>
                 <th>削除</th>
             </tr>
             @foreach($products as $product)
@@ -31,6 +33,7 @@
                 <td>{{$product->stock}}</td>
                 <td>あああ</td>
                 <td>{{$product->created_at}}</td>
+                <td><a href="{{ route('admin.product.show',['id' => $product->id ]) }}"><img src="/storage/image/edit.png" alt="" class="trash_can"></a></td>
                 <td><a href="{{ route('admin.product.destroy',['id' => $product->id ]) }}"><img src="/storage/image/trash_can.png" alt="" class="trash_can"></a></td>
             </tr>
             @endforeach
@@ -45,6 +48,7 @@
                 <th>タグ</th>
                 <th>削除日</th>
                 <th>復元</th>
+                <th>完全削除</th>
             </tr>
             @foreach($delete_products as $product)
             <tr>
@@ -56,6 +60,7 @@
                 <td>あああ</td>
                 <td>{{$product->deleted_at}}</td>
                 <td><a href="{{ route('admin.product.restore',['id' => $product->id ]) }}"><img src="/storage/image/restore.png" alt="" class="trash_can"></a></td>
+                <td><a href="{{ route('admin.product.delete',['id' => $product->id ]) }}"><img src="/storage/image/complete_delete.webp" alt="" class="trash_can"></a></td>
             </tr>
             @endforeach
         </table>
