@@ -1,4 +1,4 @@
-@extends('layouts.mainLayout')
+@extends('layouts.admin.mainLayout')
 @section('pageLayout')
 <div class="table-container">
     <form class="product_search" action="{{ route('admin.product.search') }}" method="get" enctype="multipart/form-data" >

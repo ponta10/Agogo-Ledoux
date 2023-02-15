@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9a52bce75ddaf1390bae885a460bc1f",
+    "content-hash": "8390de95163ea9b6f58bc7ed51a8dd76",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -518,28 +518,33 @@
         },
         {
             "name": "laravel/telescope",
-            "version": "v0.1.1",
+            "version": "v2.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/telescope.git",
-                "reference": "77deb0410a18af3b3dcf64cdc99eec62179db16a"
+                "reference": "5aa2a29faebb0f27b2437292237f4e310a60d5ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/telescope/zipball/77deb0410a18af3b3dcf64cdc99eec62179db16a",
-                "reference": "77deb0410a18af3b3dcf64cdc99eec62179db16a",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/5aa2a29faebb0f27b2437292237f4e310a60d5ec",
+                "reference": "5aa2a29faebb0f27b2437292237f4e310a60d5ec",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
+                "laravel/framework": "~5.8.0|^6.0|^7.0",
                 "moontoast/math": "^1.1",
                 "php": "^7.1.3",
-                "symfony/var-dumper": "^4.1"
+                "symfony/var-dumper": "^4.1|^5.0"
+            },
+            "require-dev": {
+                "ext-gd": "*",
+                "orchestra/testbench": "^3.8|^4.0|^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "2.x-dev"
                 },
                 "laravel": {
                     "providers": [
@@ -574,9 +579,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/telescope/issues",
-                "source": "https://github.com/laravel/telescope/tree/1.0"
+                "source": "https://github.com/laravel/telescope/tree/2.0"
             },
-            "time": "2018-10-23T18:09:26+00:00"
+            "time": "2020-02-18T19:37:42+00:00"
         },
         {
             "name": "laravel/tinker",

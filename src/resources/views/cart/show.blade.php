@@ -1,4 +1,4 @@
-@extends('layouts.userLayout')
+@extends('layouts.user.subLayout')
 
 @section('title', 'cart')
 

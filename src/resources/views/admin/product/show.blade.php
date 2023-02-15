@@ -1,4 +1,4 @@
-@extends('layouts.mainLayout')
+@extends('layouts.admin.mainLayout')
 @section('pageLayout')
 <form class="show-container" action="{{ route('admin.product.edit',['id' => $product->id ]) }}" method="post" enctype="multipart/form-data" >
     @method('PUT')
