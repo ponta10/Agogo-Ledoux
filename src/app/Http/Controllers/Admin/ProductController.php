@@ -80,14 +80,14 @@ class ProductController extends Controller
 
     public function search(Request $request)
     {   
-        $products = Product::where('name','like','%'.$request->input('search').'%')->get();
+        $products = Product::where('name','like','%'.$request->input('search').'%')->paginate(10);
         $delete_products = Product::onlyTrashed()->where('name','like','%'.$request->input('search').'%')->get();
         return view('admin.product.index',compact('products','delete_products'));
     }
 
     public function sort(Request $request)
     {   
-        $products = Product::orderby($request->input("sort"),'desc')->get();
+        $products = Product::orderby($request->input("sort"),'desc')->paginate(10);
         $delete_products = Product::onlyTrashed()->orderby($request->input("sort"),'desc')->get();
         return view('admin.product.index',compact('products','delete_products'));
     }
