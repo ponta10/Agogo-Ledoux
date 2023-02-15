@@ -1,6 +1,7 @@
 const addBtn = document.querySelector(".add-btn");
 const overlay = document.querySelector(".overlay");
 const modal = document.querySelector(".modal");
+const cancelBtn = document.querySelector(".cancel-btn");
 
 const modalOpen = () => {
     overlay.classList.add("block");
@@ -12,6 +13,7 @@ const modalClose = () => {
 
 addBtn?.addEventListener("click", modalOpen);
 overlay?.addEventListener("click", modalClose);
+cancelBtn?.addEventListener("click", modalClose);
 modal?.addEventListener("click", (e) => e.stopPropagation());
 
 const file = document.querySelector(".file");

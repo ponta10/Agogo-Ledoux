@@ -7,10 +7,17 @@
         <button class="btn clear-btn" type="button"><a href="{{ route('admin.product') }}">クリア</a></button>
         <button class="btn add-btn" type="button">新規追加</button>
     </form>
-    <div class="selection">
-        <button class="btn release-btn">公開している商品</button>
-        <button class="btn trash-btn notSelected">ゴミ箱</button>
-    </div>
+    <form class="selection" action="{{ route('admin.product.sort') }}" method="get" enctype="multipart/form-data">
+        <select name="sort" id="sort" required>
+            <option value="">選択してください</option>
+            <option value="price">価格</option>
+            <option value="stock">在庫</option>
+            <option value="created_at">作成日</option>
+        </select>
+        <button class="btn" type="submit">並び替え</button>
+        <button class="btn release-btn" type="button">公開している商品</button>
+        <button class="btn trash-btn notSelected" type="button">ゴミ箱</button>
+    </form>
     <div class="product-container">
         <table class="product_table">
             <tr>
@@ -93,7 +100,7 @@
         </div>
         <div class="btn-container">
             <button class="btn" type="submit">商品追加</button>
-            <button class="btn" type="button">キャンセル</button>
+            <button class="btn cancel-btn clear-btn" type="button">キャンセル</button>
         </div>
     </form>
 </div>

@@ -83,4 +83,11 @@ class ProductController extends Controller
         $delete_products = Product::onlyTrashed()->where('name','like','%'.$request->input('search').'%')->get();
         return view('admin.product.index',compact('products','delete_products'));
     }
+
+    public function sort(Request $request)
+    {   
+        $products = Product::orderby($request->input("sort"),'desc')->get();
+        $delete_products = Product::onlyTrashed()->orderby($request->input("sort"),'desc')->get();
+        return view('admin.product.index',compact('products','delete_products'));
+    }
 }
