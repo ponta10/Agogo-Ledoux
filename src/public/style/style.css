@@ -223,3 +223,19 @@ header {
     gap: 16px;
     align-items: flex-start;
 }
+
+.clear-btn{
+    background-color: #e3e3e3;
+}
+
+.clear-btn:hover{
+    background-color: #ccc;
+    opacity: 0.8;
+}
+
+.clear-btn a{
+    color: #000;
+    display: block;
+    width: 100%;
+    height: 100%;
+}

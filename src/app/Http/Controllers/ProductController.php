@@ -76,4 +76,11 @@ class ProductController extends Controller
         Product::find($id)->update($update);
         return redirect()->route('admin.product');
     }
+
+    public function search(Request $request)
+    {   
+        $products = Product::where('name','like','%'.$request->input('search').'%')->get();
+        $delete_products = Product::onlyTrashed()->where('name','like','%'.$request->input('search').'%')->get();
+        return view('admin.product.index',compact('products','delete_products'));
+    }
 }
