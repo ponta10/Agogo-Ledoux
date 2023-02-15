@@ -191,7 +191,7 @@ header {
 }
 
 .none{
-    display: none;
+    display: none!important;
 }
 
 .notSelected{
@@ -246,4 +246,9 @@ header {
     padding: 16px;
     width: 20%;
     border-radius: 16px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
 }

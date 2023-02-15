@@ -71,6 +71,7 @@
             </tr>
             @endforeach
         </table>
+        {{ $products->links() }}
     </div>
 </div>
 <div class="overlay">

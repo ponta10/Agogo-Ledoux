@@ -35,12 +35,14 @@ const productTrash = document.querySelector('.product_table_trash');
 const product = document.querySelector('.product_table');
 const releaseBtn = document.querySelector('.release-btn');
 const trashBtn = document.querySelector('.trash-btn');
+const pagination = document.querySelector('.pagination');
 
 const trashOpen = () => {
     productTrash.classList.remove('none');
     product.classList.add('none');
     releaseBtn.classList.add('notSelected');
     trashBtn.classList.remove('notSelected');
+    pagination.classList.add('none');
 }
 
 const productOpen = () => {
@@ -48,6 +50,7 @@ const productOpen = () => {
     product.classList.remove('none');
     releaseBtn.classList.remove('notSelected');
     trashBtn.classList.add('notSelected');
+    pagination.classList.remove('none');
 }
 
 releaseBtn?.addEventListener("click", productOpen);
