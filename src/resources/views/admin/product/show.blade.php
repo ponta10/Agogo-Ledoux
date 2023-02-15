@@ -27,7 +27,7 @@
     </div>
     <div class="btn-container">
         <button class="btn" type="submit">更新</button>
-        <button class="btn" type="button">キャンセル</button>
+        <button class="btn clear-btn" type="button"><a href="{{ route('admin.product') }}">キャンセル</a></button>
     </div>
 </form>
 @endsection
