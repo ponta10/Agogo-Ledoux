@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Product;
@@ -11,8 +12,8 @@ class ProductController extends Controller
     //
     public function index()
     {   
-        $products = Product::all();
-        $delete_products = Product::onlyTrashed()->get();
+        $products = Product::paginate(10);
+        $delete_products = Product::onlyTrashed()->paginate(10);
         return view('admin.product.index',compact('products','delete_products'));
     }
 
