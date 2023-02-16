@@ -60,31 +60,16 @@
         </form>
         <div class="popular">
             <h1 class="popular-title">人気商品</h1>
+            <h1 class="popular-title">商品一覧</h1>
             <ul class="popular-list">
+                @foreach($products as $product)
                 <li class="popular-list_item">
-                    <img src="" alt="">
-                    <span>ちんげんさい</span>
-                    <span>￥1000</span>
+                    <img src="{{ asset('storage/image/' . $product->image) }}" alt="">
+                    <span>{{$product->name}}</span>
+                    <span>¥{{$product->price}}</span>
                     <button><span>Add to cart</span></button>
                 </li>
-                <li class="popular-list_item">
-                    <img src="" alt="">
-                    <span>ちんげんさい</span>
-                    <span>￥1000</span>
-                    <button><span>Add to cart</span></button>
-                </li>
-                <li class="popular-list_item">
-                    <img src="" alt="">
-                    <span>ちんげんさい</span>
-                    <span>￥1000</span>
-                    <button><span>Add to cart</span></button>
-                </li>
-                <li class="popular-list_item">
-                    <img src="" alt="">
-                    <span>ちんげんさい</span>
-                    <span>￥1000</span>
-                    <button><span>Add to cart</span></button>
-                </li>
+                @endforeach
             </ul>
         </div>
     </main>

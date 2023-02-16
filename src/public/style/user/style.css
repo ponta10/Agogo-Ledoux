@@ -184,13 +184,15 @@ a.btn--orange:hover {
 .popular-list {
     display: flex;
     padding-top: 1rem;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 16px;
 }
 .popular-list_item {
     display: flex;
     flex-direction: column;
-    margin: 0 1rem;
     align-items: center;
-    width: 30%;
+    width: 20%;
     border: #7e7e7e 2px solid;
     border-radius: 10px;
 }
