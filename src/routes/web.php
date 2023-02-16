@@ -41,6 +41,9 @@ Route::group(['prefix' => 'user', 'as' => 'user'], function(){
     Route::get('/home', 'Top\UserController@index');  //ルート名「product.show」
     Route::get('/userList', 'Top\UserController@userList')->name('.userList');
     Route::get('/setting', 'Top\UserController@setting')->name('.setting');  //ルート名「product.show」
+    Route::group(['prefix' => 'detail', 'as' => '.detail'], function () {
+        Route::get('/', 'Top\DetailController@index');
+    });
     Route::group(['prefix' => 'cart', 'as' => 'cart'], function () {
         Route::get('/', 'Top\CartController@index');
         Route::get('/setting', 'Admin\AdminController@setting')->name('.setting');

@@ -118,3 +118,44 @@ body{
     }
   }
 }
+
+.btn{
+  padding: 16px 24px;
+  border-radius: 24px;
+  width: 40%;
+}
+
+.detail-container{
+  display: flex;
+  & img{
+    width: 55%;
+  }
+  & .detail {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    & .number{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      & .amount{
+        text-align: center;
+      }
+      & .plus, .minus{
+        background-color: #eaeaea;
+        padding: 4px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    }
+    & .cart-btn{
+      background-color: #ffb23E;
+      color: #fff;
+    }
+    & .buy-btn{
+      background-color: #ff9900;
+      color: #fff;
+    }
+  }
+}
