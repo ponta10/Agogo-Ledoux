@@ -63,25 +63,27 @@
             <h1 class="popular-title">新着商品</h1>
             <ul class="popular-list">
                 @foreach($newProducts as $product)
-                <li class="popular-list_item">
+                <li class="popular-list_item" href="{{ route('user.detail.show',['id' => $product->id ]) }}">
                     <img src="{{ asset('storage/image/' . $product->image) }}" alt="">
                     <span>{{$product->name}}</span>
                     <span>¥{{$product->price}}</span>
-                    <button><span>Add to cart</span></button>
+                    <button><a href="{{ route('user.cart') }}">Add to cart</a></button>
+                    <button><a href="{{ route('user.detail.show',['id' => $product->id ]) }}">See detail</a></button>
                 </li>
                 @endforeach
             </ul>
             <h1 class="popular-title">商品一覧</h1>
-            <ul class="popular-list">
+            <div class="popular-list">
                 @foreach($products as $product)
                 <li class="popular-list_item">
                     <img src="{{ asset('storage/image/' . $product->image) }}" alt="">
                     <span>{{$product->name}}</span>
                     <span>¥{{$product->price}}</span>
-                    <button><span>Add to cart</span></button>
+                    <button><a href="{{ route('user.cart') }}">Add to cart</a></button>
+                    <button><a href="{{ route('user.detail.show',['id' => $product->id ]) }}">See detail</a></button>
                 </li>
                 @endforeach
-            </ul>
+            </div>
         </div>
     </main>
     <footer>

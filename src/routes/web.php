@@ -42,9 +42,9 @@ Route::group(['prefix' => 'user', 'as' => 'user'], function(){
     Route::get('/userList', 'Top\UserController@userList')->name('.userList');
     Route::get('/setting', 'Top\UserController@setting')->name('.setting');  //ルート名「product.show」
     Route::group(['prefix' => 'detail', 'as' => '.detail'], function () {
-        Route::get('/', 'Top\DetailController@index');
+        Route::get('/show/{id}', 'Top\DetailController@show')->name('.show');
     });
-    Route::group(['prefix' => 'cart', 'as' => 'cart'], function () {
+    Route::group(['prefix' => 'cart', 'as' => '.cart'], function () {
         Route::get('/', 'Top\CartController@index');
         Route::get('/setting', 'Admin\AdminController@setting')->name('.setting');
     });
