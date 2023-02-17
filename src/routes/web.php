@@ -49,3 +49,15 @@ Route::group(['prefix' => 'user', 'as' => 'user'], function(){
         Route::get('/setting', 'Admin\AdminController@setting')->name('.setting');
     });
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// ここから追加
+Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
+Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
+
+Route::post('/login/admin', 'Auth\LoginController@adminLogin');
+Route::post('/register/admin', 'Auth\RegisterController@createAdmin')->name('admin-register');
+
+Route::view('/admin', 'admin')->middleware('auth:admin')->name('admin-home');
