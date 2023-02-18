@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -57,5 +57,13 @@ class LoginController extends Controller
             return redirect()->intended('/admin');
         }
         return back()->withInput($request->only('email', 'remember'));
+    }
+    protected function loggedOut(Request $request)
+    {
+        return redirect(route('admin.login.show')); // loginページの場合
+    }
+    protected function userloggedOut(Request $request)
+    {
+        return redirect(route('user.login.show')); // loginページの場合
     }
 }
