@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin', 'as' => 'admin','middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin','middleware' => 'auth:admin' ], function () {
     Route::get('/', 'Admin\AdminController@index');
     Route::group(['prefix' => 'product', 'as' => '.product'], function () {
         Route::get('/', 'Admin\ProductController@index');
@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin','middleware' => 'auth'], func
 
 Route::group(['prefix' => 'user', 'as' => 'user'], function(){
     Route::get('/', 'Top\UserController@index');    //ルート名「product」
-    Route::get('/home', 'Top\UserController@index');  //ルート名「product.show」
+    Route::get('/home', 'Top\UserController@index')->name('user.home');  //ルート名「product.show」
     Route::get('/userList', 'Top\UserController@userList')->name('.userList');
     Route::get('/setting', 'Top\UserController@setting')->name('.setting');  //ルート名「product.show」
     Route::group(['prefix' => 'detail', 'as' => '.detail'], function () {
@@ -49,9 +49,6 @@ Route::group(['prefix' => 'user', 'as' => 'user'], function(){
         Route::get('/setting', 'Admin\AdminController@setting')->name('.setting');
     });
 });
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 // ここから追加
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm')->name('admin.login.show');
@@ -59,7 +56,3 @@ Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
 
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin')->name('admin-register');
-
-// Route::view('/admin', 'admin')->middleware('auth:admin')->name('admin-home');
-
-Route::post('/login/admin', 'Auth\LoginController@adminLogin');

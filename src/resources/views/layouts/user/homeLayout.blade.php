@@ -16,6 +16,12 @@
         <div class="wrapper site-header__wrapper">
             <a href="" class="brand">Agogo & Ledoux
             </a>
+            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+       {{ __('Logout') }}
+    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
             <ul class="nav__wrapper">
                 <li class="nav__item"><a href="/user/cart" class=""><i class="fas fa-shopping-cart"></i></a></li>
                 <li class="nav__item"><a href="#">Home</a></li>
