@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix' => 'admin', 'as' => 'admin'], function () {
     Route::get('/', 'Admin\AdminController@index');
     Route::group(['prefix' => 'product', 'as' => '.product'], function () {
-        Route::get('/', 'Admin\ProductController@index');
+        Route::get('/', 'Admin\ProductController@index')->middleware('auth:admin');
         Route::post('/store', 'Admin\ProductController@store')->name('.store');
         Route::get('/destroy/{id}', 'Admin\ProductController@destroy')->name('.destroy');
         Route::get('/restore/{id}', 'Admin\ProductController@restore')->name('.restore');
@@ -54,10 +54,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // ここから追加
-Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
+Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm')->name('admin.login.show');
 Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
 
-Route::post('/login/admin', 'Auth\LoginController@adminLogin');
+Route::post('/login/admin', 'Auth\LoginController@adminLogin')->name('admin.login');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin')->name('admin-register');
+Route::post('/logout/admin', 'Auth\LoginController@adminLogout')->name('admin.logout');
 
-Route::view('/admin', 'admin')->middleware('auth:admin')->name('admin-home');

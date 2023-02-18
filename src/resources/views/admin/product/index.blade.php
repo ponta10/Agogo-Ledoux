@@ -1,7 +1,16 @@
 @extends('layouts.admin.mainLayout')
 @section('pageLayout')
 <div class="table-container">
-    <form class="product_search" action="{{ route('admin.product.search') }}" method="get" enctype="multipart/form-data" >
+<a class="dropdown-item" href="{{ route('admin.logout') }}"    
+                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                aaaa
+            </a>
+            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none"> 
+                @csrf
+            </form>
+            {{$user}}
+    <form class="product_search" action="{{ route('admin.product.search') }}" method="get" enctype="multipart/form-data">
         <input type="text" name="search" value="{{ request()->input('search') }}">
         <button class="btn" type="submit">検索</button>
         <button class="btn clear-btn" type="button"><a href="{{ route('admin.product') }}">クリア</a></button>

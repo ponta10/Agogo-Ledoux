@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Product;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,7 +15,8 @@ class ProductController extends Controller
     {   
         $products = Product::paginate(10);
         $delete_products = Product::onlyTrashed()->paginate(10);
-        return view('admin.product.index',compact('products','delete_products'));
+        $user = Auth::guard('admin')->user();
+        return view('admin.product.index',compact('products','delete_products','user'));
     }
 
     public function store(Request $request)
