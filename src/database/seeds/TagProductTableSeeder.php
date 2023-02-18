@@ -15,39 +15,51 @@ class TagProductTableSeeder extends Seeder
         $params = [
             [
                 'product_id' => '1',
-                'tag_id' => '1',
-                'bill_amount' => '120',
+                'tag_id' => '4',
                 'updated_at' => new DateTime(),
+                //みかん1
             ],
             [
                 'product_id' => '1',
-                'tag_id' => '2',
-                'bill_amount' => '120',
+                'tag_id' => '5',
                 'updated_at' => new DateTime(),
+                //みかん1
             ],
             [
-                'product_id' => '1',
+                'product_id' => '2',
                 'tag_id' => '3',
-                'bill_amount' => '120',
                 'updated_at' => new DateTime(),
+                //りんご1
             ],
             [
                 'product_id' => '2',
-                'tag_id' => '1',
-                'bill_amount' => '240',
+                'tag_id' => '6',
                 'updated_at' => new DateTime(),
-            ],
-            [
-                'product_id' => '2',
-                'tag_id' => '2',
-                'bill_amount' => '240',
-                'updated_at' => new DateTime(),
+                //りんご1
             ],
             [
                 'product_id' => '3',
                 'tag_id' => '2',
-                'bill_amount' => '300',
                 'updated_at' => new DateTime(),
+                //ブドウ1
+            ],
+            [
+                'product_id' => '3',
+                'tag_id' => '5',
+                'updated_at' => new DateTime(),
+                //ブドウ1
+            ],
+            [
+                'product_id' => '4',
+                'tag_id' => '2',
+                'updated_at' => new DateTime(),
+                //もも1
+            ],
+            [
+                'product_id' => '4',
+                'tag_id' => '5',
+                'updated_at' => new DateTime(),
+                //もも1
             ],
         ];
         foreach ($params as $param) {

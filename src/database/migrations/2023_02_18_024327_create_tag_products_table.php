@@ -19,7 +19,6 @@ class CreateTagProductsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('product_id');
             $table->integer('tag_id');
-            $table->integer('bill_amount');
             $table->timestamps();
         });
     }
