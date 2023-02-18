@@ -36,6 +36,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin'], function () {
     Route::get('/setting', 'Admin\AdminController@setting')->name('.setting');  //ルート名「product.show」
 });
 
+
 Route::group(['prefix' => 'user', 'as' => 'user'], function(){
     Route::get('/', 'Top\UserController@index');    //ルート名「product」
     Route::get('/home', 'Top\UserController@index');  //ルート名「product.show」
