@@ -36,24 +36,14 @@
         <form action="" method="post" class="tag">
             <h1 class="tag-title">タグ検索</h1>
             <ul class="tag-list">
+                @foreach ($tags as $tag)
                 <li class="tag-list_item">
                     <input class="tag-list_item_checkbox" type="checkbox" value="新鮮" name="fresh" id="">
                     <label>
-                        <span class="tag-list_item_text">新鮮</span>
+                        <span class="tag-list_item_text">{{$tag->name}}</span>
                     </label>
                 </li>
-                <li class="tag-list_item">
-                    <input class="tag-list_item_checkbox" type="checkbox" value="新鮮" name="fresh" id="">
-                    <label>
-                        <span class="tag-list_item_text">新鮮</span>
-                    </label>
-                </li>
-                <li class="tag-list_item">
-                    <input class="tag-list_item_checkbox" type="checkbox" value="新鮮" name="fresh" id="">
-                    <label>
-                        <span class="tag-list_item_text">新鮮</span>
-                    </label>
-                </li>
+                @endforeach
                 <li class="tag-list_item_submit" name="submit"><input type="submit" name="submit" value="検索">
                 </li>
             </ul>
