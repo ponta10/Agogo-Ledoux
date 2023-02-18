@@ -32,7 +32,7 @@
                 </option>
                 @endfor
             </select>
-            <a>削除</a>
+            <a href="/user/cart/delete/{{$item['id']}}">削除</a>
             <a>類似商品をもっとみる</a>
           </div>
         </div>
