@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin', 'as' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin','middleware' => 'auth'], function () {
     Route::get('/', 'Admin\AdminController@index');
     Route::group(['prefix' => 'product', 'as' => '.product'], function () {
         Route::get('/', 'Admin\ProductController@index');
@@ -60,6 +60,6 @@ Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin')->name('admin-register');
 
-Route::view('/admin', 'admin')->middleware('auth:admin')->name('admin-home');
+// Route::view('/admin', 'admin')->middleware('auth:admin')->name('admin-home');
 
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
