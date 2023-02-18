@@ -73,7 +73,11 @@
                     <img src="{{ asset('storage/image/' . $product->image) }}" alt="">
                     <span>{{$product->name}}</span>
                     <span>¥{{$product->price}}</span>
-                    <button><a href="{{ route('user.cart') }}">Add to cart</a></button>
+                    <form action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="cart" value="{{$product->id}}">
+                        <button type="submit">Add to cart</button>
+                    </form>
                     <button><a href="{{ route('user.detail.show',['id' => $product->id ]) }}">See detail</a></button>
                 </li>
                 @endforeach

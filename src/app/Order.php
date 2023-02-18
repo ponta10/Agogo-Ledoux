@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Cart extends Model
+class Order extends Model
 {
     //
     protected $fillable = [
-        'product_id', 'user_id', 'amount'
+        'user_id', 'bill_amount'
     ];
 }

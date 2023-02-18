@@ -38,15 +38,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin','middleware' => 'auth:admin' 
 
 Route::group(['prefix' => 'user', 'as' => 'user'], function(){
     Route::get('/', 'Top\UserController@index');    //ルート名「product」
-    Route::get('/home', 'Top\UserController@index')->name('user.home');  //ルート名「product.show」
-    Route::get('/userList', 'Top\UserController@userList')->name('.userList');
-    Route::get('/setting', 'Top\UserController@setting')->name('.setting');  //ルート名「product.show」
+    Route::get('/home', 'Top\UserController@index')->name('.home');  //ルート名「product.show」
     Route::group(['prefix' => 'detail', 'as' => '.detail'], function () {
         Route::get('/show/{id}', 'Top\DetailController@show')->name('.show');
     });
+    Route::group(['prefix' => 'order', 'as' => '.order'], function () {
+        Route::get('/', 'Top\OrderController@index');
+    });
     Route::group(['prefix' => 'cart', 'as' => '.cart'], function () {
         Route::get('/', 'Top\CartController@index');
-        Route::get('/setting', 'Admin\AdminController@setting')->name('.setting');
+        Route::post('/store', 'Top\CartController@store')->name('.store');
+        Route::post('/buy', 'Top\CartController@buy')->name('.buy');
     });
 });
 
