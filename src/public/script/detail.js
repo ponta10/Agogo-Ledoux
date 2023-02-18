@@ -9,7 +9,7 @@ const plusAmount = () => {
 }
 
 const minusAmount = () => {
-    amount.value--;
+    amount.value > 0 && amount.value--;
 }
 
 plus.addEventListener('click',plusAmount );
