@@ -47,6 +47,8 @@ Route::group(['prefix' => 'user', 'as' => 'user'], function(){
     });
     Route::group(['prefix' => 'cart', 'as' => '.cart'], function () {
         Route::get('/', 'Top\CartController@index');
+        Route::get('/delete/{id}','Top\CartController@delete')->name('.delete');
+        Route::post('/delete/{id}','Top\CartController@destroy')->name('.destroy');
         Route::post('/store', 'Top\CartController@store')->name('.store');
         Route::post('/buy', 'Top\CartController@buy')->name('.buy');
     });
