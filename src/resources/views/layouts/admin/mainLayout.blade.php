@@ -13,6 +13,7 @@
 <body>
     <header>
         <h2>Agogo&Ledoux</h2>
+
     </header>
     <div class="main">
         <nav class="navigation">
@@ -21,12 +22,20 @@
                 <li class="navigation-list_item @yield('product')"><a href="{{ route('admin.product') }}" class="link">商品管理<a></li>
                 <li class="navigation-list_item @yield('userList')"><a href="{{ route('admin.userList') }}" class="link">会員管理</a></li>
                 <li class="navigation-list_item @yield('setting')"><a href="{{ route('admin.setting') }}" class="link">設定</a></li>
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+       {{ __('Logout') }}
+    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
             </ul>
+
         </nav>
         <div class="container">
             @yield('pageLayout')
         </div>
     </div>
+    
     <script src="{{ asset('/script/admin.js') }}"></script>
 </body>
 
