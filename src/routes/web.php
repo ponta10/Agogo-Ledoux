@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin', 'as' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin','middleware' => 'auth:admin' ], function () {
     Route::get('/', 'Admin\AdminController@index');
     Route::group(['prefix' => 'product', 'as' => '.product'], function () {
         Route::get('/', 'Admin\ProductController@index');
@@ -38,22 +38,25 @@ Route::group(['prefix' => 'admin', 'as' => 'admin'], function () {
 
 Route::group(['prefix' => 'user', 'as' => 'user'], function(){
     Route::get('/', 'Top\UserController@index');    //ルート名「product」
-    Route::get('/home', 'Top\UserController@index');  //ルート名「product.show」
-    Route::get('/userList', 'Top\UserController@userList')->name('.userList');
-    Route::get('/setting', 'Top\UserController@setting')->name('.setting');  //ルート名「product.show」
+    Route::get('/home', 'Top\UserController@index')->name('.home');  //ルート名「product.show」
     Route::group(['prefix' => 'detail', 'as' => '.detail'], function () {
         Route::get('/show/{id}', 'Top\DetailController@show')->name('.show');
     });
+    Route::group(['prefix' => 'order', 'as' => '.order'], function () {
+        Route::get('/', 'Top\OrderController@index');
+    });
     Route::group(['prefix' => 'cart', 'as' => '.cart'], function () {
         Route::get('/', 'Top\CartController@index');
+<<<<<<< HEAD
         Route::get('/delete/{id}','Top\CartController@delete');
         Route::post('/delete/{id}','Top\CartController@destroy');
         Route::get('/setting', 'Admin\AdminController@setting')->name('.setting');
+=======
+        Route::post('/store', 'Top\CartController@store')->name('.store');
+        Route::post('/buy', 'Top\CartController@buy')->name('.buy');
+>>>>>>> 965ca2f3c9e3f4b3d127320bcb2a0bdd3de501a0
     });
 });
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 // ここから追加
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm')->name('admin.login.show');
@@ -61,7 +64,3 @@ Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
 
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin')->name('admin-register');
-
-Route::view('/admin', 'admin')->middleware('auth:admin')->name('admin-home');
-
-Route::post('/login/admin', 'Auth\LoginController@adminLogin');

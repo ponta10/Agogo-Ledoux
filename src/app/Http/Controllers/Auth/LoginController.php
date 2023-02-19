@@ -60,10 +60,6 @@ class LoginController extends Controller
     }
     protected function loggedOut(Request $request)
     {
-        return redirect(route('admin.login.show')); // loginページの場合
-    }
-    protected function userloggedOut(Request $request)
-    {
-        return redirect(route('user.login.show')); // loginページの場合
+        return redirect(route('login'));
     }
 }

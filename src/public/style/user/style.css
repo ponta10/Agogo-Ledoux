@@ -212,7 +212,7 @@ a.btn--orange:hover {
 .popular-list_item button {
     padding: 8px 4px;
     border-radius: 30px;
-    margin: 16px 0;
+    margin: 16px auto;
     text-align: center;
     width: 80%;
     background: #FFB23E;
@@ -227,3 +227,17 @@ a.btn--orange:hover {
     height: 100%;
 }
 
+.cart-form{
+    width: 100%;
+    text-align: center;
+}
+
+
+form .added{
+    opacity: 0.5;
+}
+
+.popular-list form .btn {
+    width: 80%;
+    padding: 8px 4px;
+}

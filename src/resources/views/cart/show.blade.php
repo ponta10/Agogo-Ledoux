@@ -3,7 +3,8 @@
 @section('title', 'cart')
 
 @section('content')
-<div class="main_cart">
+<form class="main_cart" action="{{ route('user.cart.buy') }}" method="POST" enctype="multipart/form-data">
+  @csrf
   <div class="main_cart_left">
     <div class="main_cart_left_top">
       <h1>ショッピングカート</h1>
@@ -11,11 +12,11 @@
       <p class="price">価格</p>
     </div>
     <ul class="main_cart_left_products">
-      @foreach($items as $item)
+      @foreach($items as $key => $item)
+      <input type="hidden" name="items[{{$key}}]" value="{{$item->id}}">
       <li class="main_cart_left_product">
-        <input type="checkBox" checked>
         <img src="{{ asset('storage/image/' . $item->image) }}" alt="写真">
-        <div class="main_cart_left_product_info">
+        <div class="main_cart_lef t_product_info">
           <h2>{{$item['name']}}</h2>
           @if($item['stock']-$item['amount'] > 2)
           <p class="stock stock_enough">在庫あり</p>
@@ -23,7 +24,7 @@
           <p class="stock stock_less">残り{{$item['stock']}}点</p>
           @endif
           <div class="amount">
-            <select name="amount" id="" price="{{$item['price']}}">
+            <select name="amount[{{$key}}]" id="" price="{{$item['price']}}">
               @for($i=0;$i<$item['stock'];$i++) @if($i+1===$item['amount']) <option selected value="{{$i+1}}">
                 @else
                 <option value="{{$i + 1}}">
@@ -51,8 +52,8 @@
   <div class="main_cart_right">
     <div class="main_cart_right_price">
       小計（{{count($items)}}個の商品）<br>税込<span class="j_price"></span>円
-      <input type="hidden" value=0 name="price" id="hidden_price">
-      <button>レジへ進む</button>
+        <input type="hidden" value=0 name="order" id="hidden_price">
+        <button type="submit">レジへ進む</button>
     </div>
     <div class="main_cart_right_recommend">
       <div class="recommendations">
@@ -72,7 +73,7 @@
       </div>
     </div>
   </div>
-</div>
+</form>
 
 <script>
   const priceAreas = document.querySelectorAll('.j_price');
