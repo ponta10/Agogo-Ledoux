@@ -204,10 +204,10 @@ a.btn--orange:hover {
     width: 20%;
     border: #7e7e7e 2px solid;
     border-radius: 10px;
+    padding: 16px;
 }
 .popular-list_item a {
     font-size:20px;
-    padding: 8px 4px;
 }
 .popular-list_item button {
     padding: 8px 4px;
@@ -235,6 +235,12 @@ a.btn--orange:hover {
 
 form .added{
     opacity: 0.5;
+    pointer-events: none;
+}
+
+form .soldOut{
+    background-color: red;
+    pointer-events: none;
 }
 
 .popular-list form .btn {
