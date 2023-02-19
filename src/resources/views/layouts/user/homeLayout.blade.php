@@ -69,15 +69,17 @@
             <h1 class="popular-title">新着商品</h1>
             <ul class="popular-list">
                 @foreach($newProducts as $product)
-                <li class="popular-list_item" href="{{ route('user.detail.show',['id' => $product->id ]) }}">
+                <li class="popular-list_item">
                     <img src="{{ asset('storage/image/' . $product->image) }}" alt="">
                     <span>{{$product->name}}</span>
                     <span>¥{{$product->price}}</span>
+                    @if(in_array($product->id,$product_carts_array))
                     <form action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="cart" value="{{$product->id}}">
                         <button type="submit">Add to cart</button>
                     </form>
+                    @endif
                     <button><a href="{{ route('user.detail.show',['id' => $product->id ]) }}">See detail</a></button>
                 </li>
                 @endforeach
@@ -89,7 +91,19 @@
                     <img src="{{ asset('storage/image/' . $product->image) }}" alt="">
                     <span>{{$product->name}}</span>
                     <span>¥{{$product->price}}</span>
-                    <button><a href="{{ route('user.cart') }}">Add to cart</a></button>
+                    @if(in_array($product->id,$product_carts_array))
+                    <form class="cart-form" action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="cart" value="{{$product->id}}">
+                        <button class="btn added" disabled type="submit">Add to cart</button>
+                    </form>
+                    @else
+                    <form class="cart-form" action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="cart" value="{{$product->id}}">
+                        <button class="btn" type="submit">Add to cart</button>
+                    </form>
+                    @endif
                     <button><a href="{{ route('user.detail.show',['id' => $product->id ]) }}">See detail</a></button>
                 </li>
                 @endforeach
