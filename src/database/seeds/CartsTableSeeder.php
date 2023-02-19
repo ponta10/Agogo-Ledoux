@@ -19,24 +19,6 @@ class CartsTableSeeder extends Seeder
                 'amount' => 1,
                 'created_at' => new DateTime()
             ],
-            [
-                'user_id' => 1,
-                'product_id' => 2,
-                'amount' => 2,
-                'created_at' => new DateTime()
-            ],
-            [
-                'user_id' => 1,
-                'product_id' => 3,
-                'amount' => 3,
-                'created_at' => new DateTime()
-            ],
-            [
-                'user_id' => 1,
-                'product_id' => 4,
-                'amount' => 3,
-                'created_at' => new DateTime()
-            ],
         ];
         foreach ($params as $param) {
             DB::table('carts')->insert($param);
