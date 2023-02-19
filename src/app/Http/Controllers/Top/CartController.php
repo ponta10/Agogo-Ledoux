@@ -17,8 +17,18 @@ class CartController extends Controller
     public function index()
     {
         $user_id = Auth::id();
-        $items = Cart::where('user_id', $user_id)->join('products', 'carts.product_id', '=', 'products.id')->get();
+        $items = Cart::where('user_id', $user_id)->join('products', 'carts.product_id', '=', 'products.id')->select('carts.id', 'image', 'name', 'stock', 'amount', 'price')->get();
         return view('cart.show', compact('items'));
+    }
+    public function delete($id)
+    {
+        $item = Cart::where('carts.id', $id)->join('products', 'carts.product_id', '=', 'products.id')->first();
+        return view('cart.delete', compact('item'));
+    }
+    public function destroy($id)
+    {
+        Cart::destroy($id);
+        return redirect('/user/cart');
     }
 
     public function store(Request $request)
@@ -45,22 +55,22 @@ class CartController extends Controller
         );
         $products = $request->input('items');
         $amounts = $request->input('amount');
-        foreach($products as $key => $product):
-        $order_id = Order::latest()->first()->id;
-        $product_price = Product::find($product)->price;
-        $product_stock = Product::find($product)->stock;
-        OrderProduct::create(
-            [
-                'order_id' => $order_id ,
-                'product_id' => $product,
-                'amount' => $amounts[$key],
-                'price' => $product_price
-            ]
-        );
-        Product::find($product)->update(
-            [
-                'stock' => $product_stock -$amounts[$key]
-            ]
+        foreach ($products as $key => $product) :
+            $order_id = Order::latest()->first()->id;
+            $product_price = Product::find($product)->price;
+            $product_stock = Product::find($product)->stock;
+            OrderProduct::create(
+                [
+                    'order_id' => $order_id,
+                    'product_id' => $product,
+                    'amount' => $amounts[$key],
+                    'price' => $product_price
+                ]
+            );
+            Product::find($product)->update(
+                [
+                    'stock' => $product_stock - $amounts[$key]
+                ]
             );
         endforeach;
         Cart::where('user_id', $user_id)->delete();
