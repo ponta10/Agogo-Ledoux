@@ -20,6 +20,7 @@ class UserController extends Controller
         $newProducts = Product::where('created_at', '>=', $sevendays)->get();
         $user_id = Auth::id();
         $product_carts = Cart::where('user_id', $user_id)->get();
+        $product_carts_array = [];
         foreach ( $product_carts as $product ) :
             $product_carts_array[] = $product->product_id; 
         endforeach;
