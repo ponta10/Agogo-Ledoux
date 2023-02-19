@@ -299,7 +299,6 @@ header {
 
 .sail-day_yesterday{
     border-right: solid 1px #ccc;
-    padding: 40px 80px;
     text-align: center;
     width: 50%;
     font-size: 24px;
@@ -307,7 +306,6 @@ header {
 }
 
 .sail-day_today{
-    padding: 40px 80px;
     text-align: center;
     width: 50%;
     font-size: 24px;
@@ -335,6 +333,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     height: 100%;
     font-size: 32px;
     font-weight: 700;
@@ -346,6 +345,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     font-size: 32px;
     font-weight: 700;
 }
@@ -360,4 +360,9 @@ header {
 
 .image img{
     width: 45%;
+}
+
+.title{
+    font-size: 12px;
+    color: #aaa;
 }
