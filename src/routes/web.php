@@ -19,8 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin', 'as' => 'admin','middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin'], function () {
     Route::get('/', 'Admin\AdminController@index');
+    Route::get('/tag', 'Admin\TagController@index')->name('.tag');
+    Route::get('/tag/destroy/{id}', 'Admin\TagController@destroy')->name('.tag.destroy');
+    Route::post('/tag/store', 'Admin\TagController@store')->name('.tag.store');
     Route::group(['prefix' => 'product', 'as' => '.product'], function () {
         Route::get('/', 'Admin\ProductController@index');
         Route::post('/store', 'Admin\ProductController@store')->name('.store');

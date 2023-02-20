@@ -13,6 +13,7 @@ class ProductController extends Controller
     public function index()
     {   
         $products = Product::paginate(10);
+        // dd(Product::find(3)->tags);
         $delete_products = Product::onlyTrashed()->paginate(10);
         return view('admin.product.index',compact('products','delete_products'));
     }
@@ -41,13 +42,13 @@ class ProductController extends Controller
 
     public function restore($id)
     {   
-        Product::onlyTrashed()->find($id)->restore();
+        Product::onlyTrashed()->find($id)->restore();//onlytrashed＝論理削除しているものだけ取ってくるメソッド
         return redirect()->route('admin.product');
     }
 
     public function delete($id)
     {   
-        Product::onlyTrashed()->find($id)->forceDelete();
+        Product::onlyTrashed()->find($id)->forceDelete();//forcedelete = 強制削除のメソッド
         return redirect()->route('admin.product');
     }
 

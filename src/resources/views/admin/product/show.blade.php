@@ -25,6 +25,18 @@
         <input type="file" name="image" class="file" value="{{$product->image}}">
         <img id="preview" class="img-thumbnail h-25 w-25 mb-3" width="600px" height="450px" src="/storage/image/{{ $product->image }}">
     </div>
+    {{-- ここからタグ一覧
+    ・その商品ごとのタグを取得する
+    　→タグをforeachで回す
+    　→その商品ごとの更新一覧で表示する
+    　→チェック機能
+    　→チェックで表示されるようにする
+    
+        --}}
+    <div class="textField">
+        <p>タグ</p>
+        <input type="text" name="product_stock" value="">
+    </div>
     <div class="btn-container">
         <button class="btn" type="submit">更新</button>
         <button class="btn clear-btn" type="button"><a href="{{ route('admin.product') }}">キャンセル</a></button>
