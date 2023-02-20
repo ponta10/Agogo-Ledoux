@@ -12,4 +12,8 @@ class Product extends Model
         'name', 'desc', 'price','stock','image'
     ];
     use SoftDeletes;
+    public function orders()
+    {
+        return $this->belongsToMany('App\Order');
+    }
 }
