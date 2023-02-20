@@ -29,6 +29,7 @@ class UserController extends Controller
         foreach ( $product_carts as $product ) :
             $product_carts_array[] = $product->product_id; 
         endforeach;
-        return view('user/home',compact('products','newProducts','product_carts_array','sold_out_products_array'));
+        $popular_products = Product::withCount('orders')->orderBy('orders_count','desc')->limit(3)->get();
+        return view('user/home',compact('products','newProducts','product_carts_array','sold_out_products_array','popular_products'));
     }
 }

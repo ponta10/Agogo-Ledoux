@@ -207,4 +207,34 @@ body {
   background-color: #ff9900;
   color: #fff;
 }
-/*# sourceMappingURL=user.css.map */
+
+.account-container {
+  width: 80%;
+  margin: 0 auto;
+}
+.account-container_box {
+  background-color: #eaeaea;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  margin: 24px 0;
+}
+.account-container_box img {
+  width: 20%;
+}
+.account-container .product {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.account-container .product button {
+  padding: 8px 24px;
+  border-radius: 30px;
+  text-align: center;
+  background: #FFB23E;
+  border: none;
+  font-weight: bold;
+}
+.account-container .product button a {
+  color: #fff;
+  text-decoration: none;
+}/*# sourceMappingURL=user.css.map */

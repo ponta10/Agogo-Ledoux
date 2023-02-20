@@ -58,19 +58,19 @@ class CartController extends Controller
         );
         $products = $request->input('items');
         $amounts = $request->input('amount');
-        foreach ($products as $key => $product) :
+        foreach ($products as $key => $product_id) :
             $order_id = Order::latest()->first()->id;
-            $product_price = Product::find($product)->price;
-            $product_stock = Product::find($product)->stock;
+            $product_price = Product::find($product_id)->price;
+            $product_stock = Product::find($product_id)->stock;
             OrderProduct::create(
                 [
                     'order_id' => $order_id,
-                    'product_id' => $product,
+                    'product_id' => $product_id,
                     'amount' => $amounts[$key],
                     'price' => $product_price
                 ]
             );
-            Product::find($product)->update(
+            Product::find($product_id)->update(
                 [
                     'stock' => $product_stock - $amounts[$key]
                 ]

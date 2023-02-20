@@ -210,3 +210,35 @@ body{
     }
   }
 }
+
+
+.account-container{
+  width: 80%;
+  margin: 0 auto;
+  &_box{
+      background-color: #eaeaea;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      padding: 16px;
+      margin: 24px 0;
+      & img{
+        width: 20%;
+      }
+  }
+  & .product{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    & button{
+      padding: 8px 24px;
+      border-radius: 30px;
+      text-align: center;
+      background: #FFB23E;
+      border: none;
+      font-weight: bold;
+      & a{
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+}
