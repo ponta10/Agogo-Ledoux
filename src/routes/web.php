@@ -41,6 +41,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin','middleware' => 'auth:admin' 
 
 
 Route::group(['prefix' => 'user', 'as' => 'user'], function(){
+    Route::get('/tag', 'Top\UserController@tag')->name('.tag');
     Route::get('/', 'Top\UserController@index');    //ルート名「product」
     Route::get('/home', 'Top\UserController@index')->name('.home');  //ルート名「product.show」
     Route::get('/account', 'Top\AccountController@index')->name('.account'); 
