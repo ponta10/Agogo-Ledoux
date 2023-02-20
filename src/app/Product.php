@@ -16,4 +16,8 @@ class Product extends Model
     {
         return $this->belongsToMany('App\Order');
     }
+    public function users()
+    {
+        return $this->belongsToMany('App\User','views','product_id','user_id');
+    }
 }

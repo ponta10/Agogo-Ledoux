@@ -237,4 +237,44 @@ body {
 .account-container .product button a {
   color: #fff;
   text-decoration: none;
+}
+
+.review {
+  width: 90%;
+  margin: 0 auto;
+}
+.review .comment {
+  background-color: #eee;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  margin: 24px 0;
+  border-radius: 16px;
+  padding: 16px;
+}
+.review .comment-star {
+  width: 5%;
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.4));
+}
+.review input {
+  background-color: #fff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  padding: 8px 16px;
+}
+.review .submit {
+  background-color: #FFB23E;
+  padding: 8px 24px;
+  border-radius: 16px;
+}
+.review-none {
+  text-align: center;
+  color: #ccc;
+}
+
+.detail-btn {
+  background-color: #FFB23E;
+  padding: 8px 24px;
+  border-radius: 16px;
+}
+.detail-btn a {
+  color: #fff;
+  text-decoration: none;
 }/*# sourceMappingURL=user.css.map */

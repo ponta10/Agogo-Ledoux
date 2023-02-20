@@ -26,6 +26,7 @@
                 <li class="nav__item"><a href="/user/cart" class=""><i class="fas fa-shopping-cart"></i></a></li>
                 <li class="nav__item"><a href="#">Home</a></li>
                 <li class="nav__item"><a href="{{route('user.account')}}">Account</a></li>
+                <li class="nav__item"><a href="{{route('user.history')}}">history</a></li>
                 <li class="nav__item"><a href="/user/contact">Contact</a></li>
                 <li class="nav__item"><a href="/login">Sign In</a></li>
                 <li class="nav__item"><a href="/register" class="btn btn--orange">Sign Up</a></li>

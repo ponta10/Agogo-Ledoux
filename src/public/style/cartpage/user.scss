@@ -242,3 +242,43 @@ body{
     }
   }
 }
+
+.review{
+  width: 90%;
+  margin: 0 auto;
+  & .comment{
+    background-color: #eee;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    margin: 24px 0;
+    border-radius: 16px;
+    padding: 16px;
+    &-star{
+      width: 5%;
+      filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.4));
+    }
+  }
+  & input{
+    background-color: #fff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+    padding: 8px 16px;
+  }
+  & .submit{
+    background-color: #FFB23E;
+    padding: 8px 24px;
+    border-radius: 16px;
+  }
+  &-none{
+    text-align: center;
+    color: #ccc;
+  }
+}
+
+.detail-btn{
+  background-color: #FFB23E;
+  padding: 8px 24px;
+  border-radius: 16px;
+  & a{
+    color: #fff;
+    text-decoration: none;
+  }
+}

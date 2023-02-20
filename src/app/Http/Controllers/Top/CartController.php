@@ -8,6 +8,7 @@ use App\Cart;
 use App\Order;
 use App\OrderProduct;
 use App\Product;
+use App\View;
 
 use Illuminate\Http\Request;
 
@@ -44,6 +45,10 @@ class CartController extends Controller
                 'amount' => 1,
             ]
         );
+        View::create([
+            'user_id' => $user_id,
+            'product_id' => $request->input('cart'),
+        ]);
         return redirect()->route('user.cart');
     }
 
