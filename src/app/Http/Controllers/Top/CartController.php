@@ -28,11 +28,14 @@ class CartController extends Controller
     public function destroy($id)
     {
         Cart::destroy($id);
-        return redirect('/user/cart');
+        return redirect()->route('user.cart');
     }
 
     public function store(Request $request)
     {
+        if(!Auth::guard()->check()){
+            return redirect()->route('login');
+        }
         $user_id = Auth::id();
         Cart::create(
             [

@@ -74,10 +74,20 @@
                     <span>{{$product->name}}</span>
                     <span>¥{{$product->price}}</span>
                     @if(in_array($product->id,$product_carts_array))
-                    <form action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
+                    <form class="cart-form" action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <button class="btn added" disabled type="submit">Add to cart</button>
+                    </form>
+                    @elseif(in_array($product->id,$sold_out_products_array))
+                    <form class="cart-form" action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <button class="btn soldOut" disabled type="submit">SoldOut</button>
+                    </form>
+                    @else
+                    <form class="cart-form" action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="cart" value="{{$product->id}}">
-                        <button type="submit">Add to cart</button>
+                        <button class="btn" type="submit">Add to cart</button>
                     </form>
                     @endif
                     <button><a href="{{ route('user.detail.show',['id' => $product->id ]) }}">See detail</a></button>
@@ -96,6 +106,11 @@
                         @csrf
                         <input type="hidden" name="cart" value="{{$product->id}}">
                         <button class="btn added" disabled type="submit">Add to cart</button>
+                    </form>
+                    @elseif(in_array($product->id,$sold_out_products_array))
+                    <form class="cart-form" action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <button class="btn soldOut" disabled type="submit">SoldOut</button>
                     </form>
                     @else
                     <form class="cart-form" action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">

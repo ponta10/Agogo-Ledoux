@@ -20,9 +20,15 @@ class UserController extends Controller
         $newProducts = Product::where('created_at', '>=', $sevendays)->get();
         $user_id = Auth::id();
         $product_carts = Cart::where('user_id', $user_id)->get();
+        $product_carts_array = [];
+        $sold_out_products = Product::where('stock',0)->get();
+        $sold_out_products_array = []; 
+        foreach ( $sold_out_products as $product ) :
+            $sold_out_products_array[] = $product->id; 
+        endforeach;
         foreach ( $product_carts as $product ) :
             $product_carts_array[] = $product->product_id; 
         endforeach;
-        return view('user/home',compact('products','newProducts','product_carts_array'));
+        return view('user/home',compact('products','newProducts','product_carts_array','sold_out_products_array'));
     }
 }
