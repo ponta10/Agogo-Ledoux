@@ -81,10 +81,53 @@ body {
 .main_cart_left_product {
   height: 200px;
   border-bottom: #d4d4d4 solid 1px;
+  display: flex;
+  position: relative;
+  align-items: center;
 }
-.main_cart_left_price {
+.main_cart_left_product img {
+  width: 25%;
+}
+.main_cart_left_product_info {
+  width: 50%;
+}
+.main_cart_left_product_info h2 {
+  font-size: 20px;
+}
+.main_cart_left_product_info .stock {
+  font-size: 10px;
+}
+.main_cart_left_product_info .stock_enough {
+  color: rgb(16, 194, 114);
+}
+.main_cart_left_product_info .stock_less {
+  color: rgb(255, 0, 0);
+}
+.main_cart_left_product_info .amount {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+.main_cart_left_product_info .amount select {
+  border-radius: 5px;
+  border: solid 1px #000;
+  padding: 2px;
+}
+.main_cart_left_product_info .amount a {
+  font-size: 10px;
+  color: rgb(106, 210, 255);
+  border-bottom: solid 1px rgb(106, 210, 255);
+}
+.main_cart_left_product_price {
   display: flex;
   justify-content: flex-end;
+}
+.main_cart_left_product .price {
+  font-weight: bold;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 .main_cart_right {
   width: 18%;
@@ -163,4 +206,75 @@ body {
 .detail-container .detail .buy-btn {
   background-color: #ff9900;
   color: #fff;
+}
+
+.account-container {
+  width: 80%;
+  margin: 0 auto;
+}
+.account-container_box {
+  background-color: #eaeaea;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  margin: 24px 0;
+}
+.account-container_box img {
+  width: 20%;
+}
+.account-container .product {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.account-container .product button {
+  padding: 8px 24px;
+  border-radius: 30px;
+  text-align: center;
+  background: #FFB23E;
+  border: none;
+  font-weight: bold;
+}
+.account-container .product button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.review {
+  width: 90%;
+  margin: 0 auto;
+}
+.review .comment {
+  background-color: #eee;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  margin: 24px 0;
+  border-radius: 16px;
+  padding: 16px;
+}
+.review .comment-star {
+  width: 5%;
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.4));
+}
+.review input {
+  background-color: #fff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  padding: 8px 16px;
+}
+.review .submit {
+  background-color: #FFB23E;
+  padding: 8px 24px;
+  border-radius: 16px;
+}
+.review-none {
+  text-align: center;
+  color: #ccc;
+}
+
+.detail-btn {
+  background-color: #FFB23E;
+  padding: 8px 24px;
+  border-radius: 16px;
+}
+.detail-btn a {
+  color: #fff;
+  text-decoration: none;
 }/*# sourceMappingURL=user.css.map */

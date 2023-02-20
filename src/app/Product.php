@@ -16,4 +16,12 @@ class Product extends Model
     {
         return $this->belongsToMany('App\Tag','tag_products','product_id','tag_id');
     }
+    public function orders()
+    {
+        return $this->belongsToMany('App\Order');
+    }
+    public function users()
+    {
+        return $this->belongsToMany('App\User','views','product_id','user_id');
+    }
 }

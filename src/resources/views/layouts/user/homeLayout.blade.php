@@ -16,10 +16,17 @@
         <div class="wrapper site-header__wrapper">
             <a href="" class="brand">Agogo & Ledoux
             </a>
+            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+       {{ __('Logout') }}
+    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
             <ul class="nav__wrapper">
                 <li class="nav__item"><a href="/user/cart" class=""><i class="fas fa-shopping-cart"></i></a></li>
                 <li class="nav__item"><a href="#">Home</a></li>
-                <li class="nav__item"><a href="/user/sale">Sale</a></li>
+                <li class="nav__item"><a href="{{route('user.account')}}">Account</a></li>
+                <li class="nav__item"><a href="{{route('user.history')}}">history</a></li>
                 <li class="nav__item"><a href="/user/contact">Contact</a></li>
                 <li class="nav__item"><a href="/login">Sign In</a></li>
                 <li class="nav__item"><a href="/register" class="btn btn--orange">Sign Up</a></li>
@@ -50,30 +57,91 @@
         </form>
         <div class="popular">
             <h1 class="popular-title">人気商品</h1>
-            <h1 class="popular-title">新着商品</h1>
             <ul class="popular-list">
-                @foreach($newProducts as $product)
-                <li class="popular-list_item" href="{{ route('user.detail.show',['id' => $product->id ]) }}">
+                @foreach($popular_products as $product)
+                <li class="popular-list_item">
                     <img src="{{ asset('storage/image/' . $product->image) }}" alt="">
                     <span>{{$product->name}}</span>
                     <span>¥{{$product->price}}</span>
-                    <button><a href="{{ route('user.cart') }}">Add to cart</a></button>
+                    @if(in_array($product->id,$product_carts_array))
+                    <form class="cart-form" action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="cart" value="{{$product->id}}">
+                        <button class="btn added" disabled type="submit">Add to cart</button>
+                    </form>
+                    @elseif(in_array($product->id,$sold_out_products_array))
+                    <form class="cart-form" action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <button class="btn soldOut" disabled type="submit">SoldOut</button>
+                    </form>
+                    @else
+                    <form class="cart-form" action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="cart" value="{{$product->id}}">
+                        <button class="btn" type="submit">Add to cart</button>
+                    </form>
+                    @endif
+                    <button><a href="{{ route('user.detail.show',['id' => $product->id ]) }}">See detail</a></button>
+                </li>
+                @endforeach
+            </ul>
+            <h1 class="popular-title">新着商品</h1>
+            <ul class="popular-list">
+                @foreach($newProducts as $product)
+                <li class="popular-list_item">
+                    <img src="{{ asset('storage/image/' . $product->image) }}" alt="">
+                    <span>{{$product->name}}</span>
+                    <span>¥{{$product->price}}</span>
+                    @if(in_array($product->id,$product_carts_array))
+                    <form class="cart-form" action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <button class="btn added" disabled type="submit">Add to cart</button>
+                    </form>
+                    @elseif(in_array($product->id,$sold_out_products_array))
+                    <form class="cart-form" action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <button class="btn soldOut" disabled type="submit">SoldOut</button>
+                    </form>
+                    @else
+                    <form class="cart-form" action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="cart" value="{{$product->id}}">
+                        <button class="btn" type="submit">Add to cart</button>
+                    </form>
+                    @endif
                     <button><a href="{{ route('user.detail.show',['id' => $product->id ]) }}">See detail</a></button>
                 </li>
                 @endforeach
             </ul>
             <h1 class="popular-title">商品一覧</h1>
-            <div class="popular-list">
+            <ul class="popular-list">
                 @foreach($products as $product)
                 <li class="popular-list_item">
                     <img src="{{ asset('storage/image/' . $product->image) }}" alt="">
                     <span>{{$product->name}}</span>
                     <span>¥{{$product->price}}</span>
-                    <button><a href="{{ route('user.cart') }}">Add to cart</a></button>
+                    @if(in_array($product->id,$product_carts_array))
+                    <form class="cart-form" action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="cart" value="{{$product->id}}">
+                        <button class="btn added" disabled type="submit">Add to cart</button>
+                    </form>
+                    @elseif(in_array($product->id,$sold_out_products_array))
+                    <form class="cart-form" action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <button class="btn soldOut" disabled type="submit">SoldOut</button>
+                    </form>
+                    @else
+                    <form class="cart-form" action="{{route('user.cart.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="cart" value="{{$product->id}}">
+                        <button class="btn" type="submit">Add to cart</button>
+                    </form>
+                    @endif
                     <button><a href="{{ route('user.detail.show',['id' => $product->id ]) }}">See detail</a></button>
                 </li>
                 @endforeach
-            </div>
+            </ul>
         </div>
     </main>
     <footer>
