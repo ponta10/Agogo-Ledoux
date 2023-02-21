@@ -12,6 +12,10 @@ class Product extends Model
         'name', 'desc', 'price','stock','image'
     ];
     use SoftDeletes;
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag','tag_products','product_id','tag_id');
+    }
     public function orders()
     {
         return $this->belongsToMany('App\Order');

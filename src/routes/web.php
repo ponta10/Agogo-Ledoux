@@ -21,6 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin','middleware' => 'auth:admin' ], function () {
     Route::get('/', 'Admin\AdminController@index');
+    Route::get('/tag', 'Admin\TagController@index')->name('.tag');
+    Route::get('/tag/destroy/{id}', 'Admin\TagController@destroy')->name('.tag.destroy');
+    Route::post('/tag/store', 'Admin\TagController@store')->name('.tag.store');
     Route::group(['prefix' => 'product', 'as' => '.product'], function () {
         Route::get('/', 'Admin\ProductController@index');
         Route::post('/store', 'Admin\ProductController@store')->name('.store');
@@ -36,7 +39,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin','middleware' => 'auth:admin' 
     Route::get('/setting', 'Admin\AdminController@setting')->name('.setting');  //ルート名「product.show」
 });
 
+
 Route::group(['prefix' => 'user', 'as' => 'user'], function(){
+    Route::get('/tag', 'Top\UserController@tag')->name('.tag');
     Route::get('/', 'Top\UserController@index');    //ルート名「product」
     Route::get('/home', 'Top\UserController@index')->name('.home');  //ルート名「product.show」
     Route::get('/account', 'Top\AccountController@index')->name('.account'); 
